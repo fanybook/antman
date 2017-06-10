@@ -1,0 +1,29 @@
+{
+    "name": "fanybook/antman",
+    "license": "Apache 2.0",
+    "authors": [
+        {
+            "name": "fanybook",
+            "email": "fanybook@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.0",
+        "symfony/console": "^3.3",
+        "fabpot/goutte": "^3.2.1",
+        "facebook/webdriver": "^1.4",
+        "predis/predis": "^1.1"
+    },
+    "autoload": {
+        "psr-4": { 
+            "Antman\\": "src"
+        }
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
+}

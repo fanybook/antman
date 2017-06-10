@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+
+<?php
+date_default_timezone_set('Asia/Shanghai');
+define('ANTMAN_START', microtime(true));
+
+require __DIR__.'/vendor/autoload.php';
+
+
+$app = new Symfony\Component\Console\Application();
+
+// register commands
+$app->add(new Antman\Commands\DigCommand());
+
+
+$app->run();
