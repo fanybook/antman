@@ -1,25 +1,32 @@
 {
+    // packagist.org上的包名
     "name": "fanybook/antman",
+    // 开源协议
     "license": "Apache 2.0",
+    // 作者
     "authors": [
         {
             "name": "fanybook",
             "email": "fanybook@gmail.com"
         }
     ],
+    // 稳定性过滤
     "minimum-stability": "stable",
+    // 依赖
     "require": {
-        "php": ">=7.0",
-        "symfony/console": "^3.3",
-        "fabpot/goutte": "^3.2.1",
-        "facebook/webdriver": "^1.4",
-        "predis/predis": "^1.1"
+        "php": ">=7.0",                     // 要求php7.0以上
+        "symfony/console": "^3.3",          // 命令行库
+        "fabpot/goutte": "^3.2.1",          // 简单的php爬虫库
+        "facebook/webdriver": "^1.4",       // Selenium WebDriver的php客户端
+        "predis/predis": "^1.1"             // Redis的php客户端
     },
+    // 自动加载
     "autoload": {
         "psr-4": { 
             "Antman\\": "src"
         }
     },
+    // 仓库选择
     "repositories": {
         "packagist": {
             "type": "composer",

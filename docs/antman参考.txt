@@ -1,0 +1,37 @@
+// 命令行库，不用自己弄了
+        "symfony/console": "^3.3",
+
+// cUrl的封装，采集的基础
+        "guzzlehttp/guzzle": "^6.2",
+// 简单的php web爬虫，能实现一些动作，例如点击，提交，依赖guzzle等
+        "fabpot/goutte"
+// Selenium WebDriver的php客户端，渲染js用的
+        "facebook/webdriver": "^1.4",
+// 各个线程通讯用，redis的php客户端
+        "predis/predis": "^1.1",
+
+// xpath选择器
+        "stil/xpath-selector": "^2.0",
+// php版的jquery
+        "electrolinux/phpquery": "^0.9.6",
+// json对象选择器
+        "flow/jsonpath": "^0.3.4",
+
+// 数据库操作，支持很多
+        "nette/database": "^2.4",
+// csv文件读写
+        "league/csv": "^8.2",
+// 文件系统，支持很多云盘
+        "league/flysystem": "^1.0"
+
+
+
+
+##最好的语言 PHP + 最好的前端测试框架 Selenium = 最好的爬虫
+http://blog.csdn.net/ivan820819/article/details/53487343
+http://qsalg.com/?p=474
+http://qsalg.com/?p=488
+
+##关于php的Goutte爬虫框架和selenium2的php-webdriver的理解
+http://www.tuicool.com/articles/mumaqi
+http://qsalg.com/?p=294
