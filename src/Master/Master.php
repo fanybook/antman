@@ -85,6 +85,7 @@ class Master
         do {
             $process = new Process('php ant worker:wake ' .$i);
             $process->start();
+            $console['output']->writeln(microtime(true));
 
             $i++;
         } while ($console['rc']->get('ant:'.$job->name.':status') != 'stop');
