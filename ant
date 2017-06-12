@@ -3,6 +3,7 @@
 <?php
 date_default_timezone_set('Asia/Shanghai');
 define('ANTMAN_START', microtime(true));
+define('ANTMAN_PATH', __DIR__);
 
 require __DIR__.'/vendor/autoload.php';
 

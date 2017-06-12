@@ -1,12 +1,8 @@
 <?php
 
-namespace Antman\Commands;
+namespace Antman\Worker;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-
-class DigCommand extends Command
+class Worker
 {
     protected function configure()
     {
