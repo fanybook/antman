@@ -2,6 +2,9 @@
 
 namespace Antman\Master;
 
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+
 class Master
 {
     protected $job_space = [];
@@ -17,7 +20,7 @@ class Master
             'scheduler_trace' => [],
         ];
 
-        $this->base_config = reqeire('../Config/base_middlewares.php');
+        $this->base_config = require(ANTMAN_PATH . '/src/Config/base_middlewares.php');
     }
 
     private function _validate()
@@ -68,11 +71,9 @@ class Master
         // nothing
     }
 
-    public function start($job = null)
+    public function start($job, $console)
     {
-        if (!$job) {
-            die('爬行作业为空，请检查后再试！');
-        }
+        $console['rc']->set('ant:'.$job->name.':status', 'working');
 
         $this->job = $job;
         $this->_validate();
@@ -80,6 +81,13 @@ class Master
         $this->_processStartUrls();
         $this->_createRequest();
 
+        $i = 0;
+        do {
+            $process = new Process('php ant worker:wake ' .$i);
+            $process->start();
+
+            $i++;
+        } while ($console['rc']->get('ant:'.$job->name.':status') != 'stop');
 //        var_dump($this->job->start_urls);
 
         // 如果 config 里设置了延迟，那么全部变成单线程

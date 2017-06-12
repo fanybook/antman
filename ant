@@ -11,7 +11,9 @@ require __DIR__.'/vendor/autoload.php';
 $app = new Symfony\Component\Console\Application();
 
 // register commands
-$app->add(new Antman\Commands\DigCommand());
-
+$app->add(new Antman\Commands\JobListCommand());
+$app->add(new Antman\Commands\JobStartCommand());
+$app->add(new Antman\Commands\JobStopCommand());
+$app->add(new Antman\Commands\WorkerWakeCommand());
 
 $app->run();
