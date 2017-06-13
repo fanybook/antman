@@ -74,22 +74,28 @@ class Master
     public function start($job, $console)
     {
         $console['rc']->set('ant:'.$job->name.':status', 'working');
+        $console['rc']->set('ant:'.$job->name.':worker', 0);
 
         $this->job = $job;
         $this->_validate();
         $this->_mergeMiddleware();
         $this->_processStartUrls();
-        $this->_createRequest();
+//        $this->_createRequest();
 
-        $i = 0;
         do {
-            $process = new Process('nohup php ant worker:wake '.$i);
-            $process->disableOutput();
-            $process->start();
-            $console['output']->writeln($i .'-start'. microtime(true));
+            if ($console['rc']->get('ant:'.$job->name.':status') == 'stop') {
+                break;
+            }
 
-            $i++;
-        } while ($console['rc']->get('ant:'.$job->name.':status') != 'stop');
+            if ($console['rc']->get('ant:'.$job->name.':worker') < 8) {
+                $process = new Process('nohup php ant worker:start '.$job->name);
+                $process->start();
+                $console['output']->writeln('worker-start: ' . $process->getPid() );
+                $console['rc']->incr('ant:'.$job->name.':worker');
+            }
+
+            $console['output']->writeln($console['rc']->get('ant:'.$job->name.':worker'));
+        } while (sleep(1) === 0);
 //        var_dump($this->job->start_urls);
 
         // 如果 config 里设置了延迟，那么全部变成单线程

@@ -14,6 +14,6 @@ $app = new Symfony\Component\Console\Application();
 $app->add(new Antman\Commands\JobListCommand());
 $app->add(new Antman\Commands\JobStartCommand());
 $app->add(new Antman\Commands\JobStopCommand());
-$app->add(new Antman\Commands\WorkerWakeCommand());
+$app->add(new Antman\Commands\WorkerStartCommand());
 
 $app->run();
