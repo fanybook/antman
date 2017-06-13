@@ -31,7 +31,6 @@ class WorkerStartCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        ignore_user_abort();
         $job = $input->getArgument('job');
         sleep(10);
         $process = new Process('echo ' .$job. ' > ' .$job. '.txt');

@@ -88,7 +88,7 @@ class Master
             }
 
             if ($console['rc']->get('ant:'.$job->name.':worker') < 8) {
-                $process = new Process('nohup php ant worker:start '.$job->name);
+                $process = new Process('nohup php ant worker:start '.$job->name .' > /dev/null 2>&1 &');
                 $process->start();
                 $console['output']->writeln('worker-start: ' . $process->getPid() );
                 $console['rc']->incr('ant:'.$job->name.':worker');
