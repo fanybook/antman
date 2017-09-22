@@ -23,6 +23,8 @@
         "league/csv": "^8.2",
 // 文件系统，支持很多云盘
         "league/flysystem": "^1.0"
+        
+基于phpQuery  https://querylist.cc
 
 
 
